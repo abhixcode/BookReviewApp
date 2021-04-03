@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+                {{ form.bookname.label(class="form-control-label") }}
+                {% if form.bookname.errors %}
+                    {{ form.bookname(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.bookname.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.bookname(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.review.label(class="form-control-label") }}
+                {% if form.review.errors %}
+                    {{ form.review(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.review.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.review(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.isbn.label(class="form-control-label") }}
+                {% if form.isbn.errors %}
+                    {{ form.isbn(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.isbn.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.isbn(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.libraryid.label(class="form-control-label") }}
+                {% if form.libraryid.errors %}
+                    {{ form.libraryid(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.libraryid.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.libraryid(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+             </fieldset>
+            <div class="form-group">                
+                {{ form.submit(class="btn btn-outline-info") }}
+                <a class="mr-2" href="{{ url_for('readinglist.searchbook') }}">Search Book</a>
+                
+            </div>
+
+       
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1 class="mb-3">Add Book Review</h1>
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+                {{ form.bookname.label(class="form-control-label") }}
+                {% if form.bookname.errors %}
+                    {{ form.bookname(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.bookname.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.bookname(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.review.label(class="form-control-label") }}
+                {% if form.review.errors %}
+                    {{ form.review(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.review.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.review(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.isbn.label(class="form-control-label") }}
+                {% if form.isbn.errors %}
+                    {{ form.isbn(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.isbn.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.isbn(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.libraryid.label(class="form-control-label") }}
+                {% if form.libraryid.errors %}
+                    {{ form.libraryid(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.libraryid.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.libraryid(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+             </fieldset>
+            <div class="form-group">                
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+    </form>
+    <h1 class="mb-3">Books in library</h1>
+    {% for i in range(0, lngthoflist,3) %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <h3 class="mr-2"}}>{{ booklist[i]}}</h3>
+              <div class="article-metadata">
+              <a class="mr-2"}}>ISBN: {{ booklist[i+1]}}</a>
+              <a class="mr-2"}}>Library Id: {{ booklist[i+2]}}</a>
+        </article>
+    {% endfor %}
+{% endblock content %}
