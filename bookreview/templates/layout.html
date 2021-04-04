@@ -21,13 +21,13 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="{{ url_for('readinglist.home',user_id=1) }}">Reading List</a>
+          <a class="navbar-brand mr-4" href="{{ url_for('readinglist.home',user_id=current_user.id) }}">Reading List</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{{ url_for('readinglist.home',user_id=1) }}">Home</a>
+              <a class="nav-item nav-link" href="{{ url_for('readinglist.home',user_id=current_user.id) }}">Home</a>
 
             </div>
             <!-- Navbar Right Side -->

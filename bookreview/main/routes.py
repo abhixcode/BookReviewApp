@@ -6,7 +6,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 
 main = Blueprint('main', __name__)
 
-@main.route('/')
+#@main.route('/')
 @login_required
 def booklist():
 	readinglist = "abc"

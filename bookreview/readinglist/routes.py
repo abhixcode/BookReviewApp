@@ -8,10 +8,12 @@ import json
 
 readinglist = Blueprint('readinglist', __name__)
 
-@readinglist.route('/list/<int:user_id>')
+@readinglist.route('/list')
+@readinglist.route('/')
+#@readinglist.route('/list/<int:user_id>')
 @login_required
-def home(user_id):
-    user = User.query.filter_by(id=user_id).first_or_404()
+def home():
+    user = User.query.filter_by(id=current_user.id).first_or_404()
     #user_id = User.query.filter_by(id=username).first_or_404()
     #readinglist = ["abc","1234"]
     readinglist = Readinglist.query.filter_by(author=user).all()
@@ -35,6 +37,7 @@ def new_list():
                            form=form, legend='New List')
 
 @readinglist.route("/book/<int:list_id>")
+@login_required
 def alist(list_id):
     alist = Readinglist.query.get_or_404(list_id)
     #booklist = ["abcbook","1234book"]
