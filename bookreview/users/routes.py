@@ -6,6 +6,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 
 users = Blueprint('users', __name__)
 
+# User registration functionality using bcrypt hashing for password encryption
 @users.route('/register', methods = ['GET','POST'])
 def register():
     if current_user.is_authenticated:
@@ -20,6 +21,7 @@ def register():
         return redirect(url_for('users.login'))
     return render_template("register.html", form=form, title = "Register")
 
+# User login functionality using bcrypt hashing for password encrytion
 @users.route('/login', methods = ['GET','POST'])
 def login():
     if current_user.is_authenticated:
@@ -35,11 +37,13 @@ def login():
             flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template("login.html", form=form, title = "Login")
 
+# Logout functionality
 @users.route("/logout")
 def logout():
     logout_user()
     return redirect(url_for('users.login'))
 
+# Updating account details
 @users.route("/account", methods = ['GET','POST'])
 @login_required
 def account():

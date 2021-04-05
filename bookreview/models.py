@@ -1,12 +1,15 @@
+# Python file to create tables as per schema
 from bookreview import db, login_manager, create_app
 from flask_login import UserMixin
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app
 
+# To manage login
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+# To manage and maintain User
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
@@ -17,6 +20,7 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"User('{self.username}',{self.id}.'{self.email}')"
 
+# To manage and maintain Reviews
 class Readinglist(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     bookname = db.Column(db.String(100), nullable=False)

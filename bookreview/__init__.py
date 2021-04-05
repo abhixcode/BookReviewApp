@@ -1,3 +1,5 @@
+# We initialise the app here with config, database, login manager and bcrypt
+
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -19,6 +21,8 @@ def create_app():
 	db.init_app(app)
 	bcrypt.init_app(app)
 	login_manager.init_app(app)
+
+	# We import the blue prints and register them with the app
 	from bookreview.users.routes import users
 	from bookreview.readinglist.routes import readinglist
 	from bookreview.main.routes import main

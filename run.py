@@ -1,3 +1,4 @@
+# We run the app here
 from bookreview import create_app
 #from OpenSSL import SSL
 #import ssl

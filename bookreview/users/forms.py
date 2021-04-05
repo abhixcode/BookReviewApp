@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from bookreview.models import User
 from flask_login import login_user, current_user
 
+# Sign up form
 class RegistrationForm(FlaskForm):
 	username = StringField('Username', validators=[DataRequired(), Length(min=3,max=20)])
 	email = StringField('email', validators=[DataRequired(), Email()])
@@ -21,12 +22,13 @@ class RegistrationForm(FlaskForm):
 		if email:
 			raise ValidationError('Email exists')
 
+# Login form
 class LoginForm(FlaskForm):
 	username = StringField('Username', validators=[DataRequired(), Length(min=3,max=20)])
 	password = PasswordField('Password', validators=[DataRequired()])
 	submit = SubmitField('Login')
 
-
+# Update account details form
 class UpdateAccountForm(FlaskForm):
     username = StringField('Username',
                            validators=[DataRequired(), Length(min=2, max=20)])
