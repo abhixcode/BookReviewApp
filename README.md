@@ -89,6 +89,7 @@ The application runs on port 5000.
 * email-validator
 * AWS
 * MySQL
+* Cloudflare (SSL)
 
 
 ## HTTP REST API
@@ -102,13 +103,15 @@ The application runs on port 5000.
 | /account               | GET, POST | account()                | View user account details.          |
 | /list                  | GET, POST | home()                   | View existing list of book reviews. |
 | /list/new              | GET, POST | new_list()               | Create new book review.             |
-| /book/bookid           | GET, POST | alist()                  |                                     |
+| /book/bookid           | GET, POST | alist()                  | View a single book review.          |
 | /book/bookid/update    | GET, POST | update_list(list id)     | Update book review by book id.      |
 | /book/bookid/delete    | POST      | delete_list(list id)     | Delete book review by book id.      |
 | /book/bookid/add       | GET, POST | addbook(list id)         | Add book review by book id.         |
-| /book/bookname/search  | GET, POST | booknamesearch(bookname) | Search book by book name.           |
-| /book/list/search      | GET, POST | searchbook()             |                                     |
+| /book/bookname/search  | GET, POST | booknamesearch(bookname) | External API call to OpenLibrary.   |
+| /book/list/search      | GET, POST | searchbook()             | Show book search results.           |
 
+Since HTML does not support PUT and DELETE methods, these have been implmented in a console based application hosted on a different repositiory
+https://github.com/abhixcode/BookReviewAppConsole
 
 # Contributors
 The application was jointly developed by below team members.
