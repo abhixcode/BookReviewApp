@@ -18,7 +18,43 @@ application features
 
 # Directory structure
 
-explain project directory structure
+The project directory structure is as shown below.
+
+```text
+BookReviewApp/
+├── run.py
+├── README.md
+├── bookreview
+|   ├── __init__.py
+|   ├── config.py
+|   ├── models.py
+|   ├── errors/
+│   |    ├── __init__.py
+│   |    └── handlers.py
+|   ├── main/
+│   |   ├── __init__.py
+|   |   └── routes.py
+|   ├── readinglist/
+|   |   ├── __init__.py
+|   |   └── routes.py
+|   ├── static/
+|   |   └── main.css
+|   ├── templates/
+|   |   ├── account.html
+|   |   ├── addbook.html
+|   |   ├── alist.html
+|   |   ├── booklist.html
+|   |   ├── create_list.html
+|   |   ├── layout.html
+|   |   ├── login.html
+|   |   ├── register.html
+|   |   └── searchbook.html
+└── └── users/
+    |   ├── __init__.py
+    |   ├── forms.py
+    └── └── routes.py
+```
+
 
 # Design
 
